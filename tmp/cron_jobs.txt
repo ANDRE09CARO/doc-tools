@@ -1,0 +1,13 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-auth-tokens -q --vendor >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-auth-tokens -q --customer >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-discount-program-counters -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-phone-registration-tokens -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:image-server-remove-images -q -s >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:image-server-remove-images -q -p >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:get-ios-invalid-tokens -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:update-index-clients-count -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-phone-auth-codes --vendor -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
+* * * * * php /h/spadoba/rp/bin/console rp:remove-expired-phone-auth-codes --customer -q >> /h/spadoba/rp/var/logs/cron.log 2>&1
